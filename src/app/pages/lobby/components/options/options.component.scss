@@ -1,0 +1,10 @@
+@use '../../../../../themes.scss' as *;
+
+.bg-noir {
+  background-color: nb-theme(color-basic-1100);
+}
+
+.mobileCard {
+  min-height: 300px;
+  max-height: 350px;
+}

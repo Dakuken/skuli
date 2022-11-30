@@ -1,0 +1,11 @@
+@use '../../../themes.scss' as *;
+
+.bg-noir {
+  background-color: nb-theme(color-basic-1100);
+}
+
+.cardbody{
+  min-height: 300px;
+  min-width: 300px;
+  max-height: 400px;
+}

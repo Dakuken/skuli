@@ -1,0 +1,31 @@
+<div class=" h-full flex justify-center items-center">
+  <h1 class="absolute top-2 left-2" (click)="goToHome()"> Skulili Quiz</h1>
+  <div class="flex justify-center items-center flex-wrap-reverse" [ngClass]="{'flex-wrap' : fullScreen }">
+    <!-- responsive -->
+    <form [formGroup]="createRoomForm" (ngSubmit)="addRoom()">
+      <nb-card class="text-center  max-w-96" [ngClass]="{'mx-20' : fullScreen }">
+        <nb-card-header class="text-2xl">Créer</nb-card-header>
+
+        <nb-card-body class="bg-noir">
+          <input type="text" nbInput status="primary" placeholder="Nom de la partie" class="m-10" formControlName="roomNameCreate">
+          <!---<input _ngcontent-ihl-c85="" type="text" nbinput="" fullwidth="" status="primary" placeholder="Fichier question.json à charger " class="mb-10 place-content-center input-full-width size-medium status-primary shape-rectangle nb-transition">--->
+        </nb-card-body>
+
+        <nb-card-footer>
+          <button nbButton outline status="success" [disabled]="createRoomForm.invalid">Create</button>
+        </nb-card-footer>
+      </nb-card>
+    </form>
+    <form [formGroup]="joinRoomForm" (ngSubmit)="joinRoom()">
+      <nb-card class="text-center mx-20  max-w-96" [ngClass]="{'mx-20' : fullScreen }">
+        <nb-card-header class="text-2xl">Rejoindre</nb-card-header>
+        <nb-card-body class=" bg-noir">
+          <input type="text" nbInput status="primary" placeholder="Clé de la partie" class="m-10" formControlName="roomNameJoin">
+        </nb-card-body>
+        <nb-card-footer class="">
+          <button nbButton outline status="success" [disabled]="joinRoomForm.invalid">Join</button>
+        </nb-card-footer>
+      </nb-card>
+    </form>
+  </div>
+</div>

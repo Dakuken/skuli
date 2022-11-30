@@ -1,0 +1,56 @@
+@use '../../../../../themes.scss' as *;
+
+@media (min-width: 1536px) {
+  nb-card {
+    width: 32rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  nb-card {
+    width: 28rem;
+
+  }
+
+}
+
+
+@media (min-width : 768px) {
+  nb-card {
+    min-width: 350px;
+  }
+}
+
+
+.bg-noir {
+  background-color: nb-theme(color-basic-1100);
+}
+
+.grey {
+  color: nb-theme(color-basic-600)
+}
+
+.point {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.redPoint {
+  background: nb-theme(color-danger-700);
+}
+
+.greenPoint {
+  background: nb-theme(color-success-700);
+}
+
+.mobileCard {
+  min-height: 250px;
+  max-height: 40vh;
+}
+
+.joueurCard {
+  height: 80vh;
+
+
+}

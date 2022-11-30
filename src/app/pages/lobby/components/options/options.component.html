@@ -1,0 +1,56 @@
+<nb-card [ngClass]="{'mobileCard' : !fullScreen}" class="mb-2 shadow">
+  <nb-card-header class="flex justify-between">
+    <p class="md:text-2xl text-lg">Options : </p>
+  </nb-card-header>
+  <nb-card-body class="bg-noir">
+    <div class="flex justify-center">
+      <div class="text-right">
+        <p class="text-lg md:pt-4 pt-1.5 truncate">Joueurs :</p>
+        <p class="text-lg md:pt-6 pt-1.5 truncate">Temps :</p>
+        <p class="text-lg md:pt-6 pt-1.5 truncate">Questions :</p>
+      </div>
+
+      <div class="text-right ml-2" *ngIf="!isHost">
+        <p class="text-lg md:pt-4 pt-1.5 truncate">{{params.nbPlayers}}</p>
+        <p class="text-lg md:pt-6 pt-1.5 truncate">{{params.nbTimes}}</p>
+        <p class="text-lg md:pt-6 pt-1.5 truncate">{{params.nbQuestions}}</p>
+      </div>
+
+
+      <div *ngIf="isHost">
+        <!-- ! à refaire pour les espaces -->
+        <div class="md:pt-1 pt-0.5">
+          <div class="flex items-center">
+            <nb-radio-group name="joueurs" status="success" class="flex justify-center md:m-2 ml-2">
+              <nb-radio checked="false" value="15" (valueChange)="onPlayersChange($event)">15</nb-radio>
+              <nb-radio checked="true" value="10" (valueChange)="onPlayersChange($event)">10</nb-radio>
+              <nb-radio checked="false" value="5" (valueChange)="onPlayersChange($event)">&#xA0;&#xA0;5</nb-radio>
+            </nb-radio-group>
+          </div>
+
+          <div class="flex items-center">
+            <nb-radio-group name="temps" status="success" class="flex justify-center md:m-2 ml-2">
+              <nb-radio checked="false" value="10" (valueChange)="onTimesChange($event)">10</nb-radio>
+              <nb-radio checked="true" value="7" (valueChange)="onTimesChange($event)">&#xA0;&#xA0;7</nb-radio>
+              <nb-radio checked="false" value="3" (valueChange)="onTimesChange($event)">&#xA0;&#xA0;3</nb-radio>
+            </nb-radio-group>
+          </div>
+
+          <div class="flex items-center">
+            <nb-radio-group name="questions" status="success" class="flex justify-center md:m-2 ml-2">
+              <nb-radio checked="false" value="20" (valueChange)="onQuestionsChange($event)">20</nb-radio>
+              <nb-radio checked="true" value="15" (valueChange)="onQuestionsChange($event)">15</nb-radio>
+              <nb-radio checked="false" value="1" (valueChange)="onQuestionsChange($event)">1</nb-radio>
+            </nb-radio-group>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer class="flex justify-around">
+
+    <button *ngIf="!fullScreen" size="large" nbButton outline (click)="toggleReady()" [status]="(isReady)?'success':'danger'">{{(isReady)?'Ready':'Not ready'}}</button>
+    <button *ngIf="!fullScreen" size="large" nbButton outline status="danger">Leave</button>
+  </nb-card-footer>
+</nb-card>

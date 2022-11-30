@@ -1,0 +1,7 @@
+<div class=" h-full flex justify-center items-center">
+  <h1 class="absolute top-2 left-2" style="font-family: Bubblegum Sans, serif" (click)="goToHome()"> Skulili Quiz</h1>
+  <div class="flex justify-around items-center flex-col w-3/4 h-4/5">
+    <app-question class="content xl:w-1/2 w-3/4" [time]="time" [question]="actualQuestion.question" [url]="actualQuestion.url" [indexQuestion]="actualQuestion.indexQuestion" (reponseindex)="answer"></app-question>
+    <app-answer class="  content xl:w-1/2 w-3/4" [choix]="actualQuestion.choix" (reponseindex)="onResponseIndex($event)"></app-answer>
+  </div>
+</div>

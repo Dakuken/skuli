@@ -1,0 +1,9 @@
+@use '../../../themes.scss' as *;
+
+.bg-noir {
+  background-color: nb-theme(color-basic-1100);
+}
+
+.content {
+  min-width: 300px;
+}

@@ -1,0 +1,9 @@
+<nb-card class="rounded-xl">
+  <nb-card-body class="rounded-xl bg-noir shadow-2xl bg-slate-900 w-full flex flex-col ">
+
+    <div class="w-full flex justify-around" *ngFor="let answer of choix;let i = index" [ngClass]="i<3?'mt-4':'mt-8 mb-4'">
+      <button *ngIf="i%2 === 0" class="answerButton box-content shadow-xl w-2/6" nbButton shape="round" size="medium" status="primary" (click)="onAnswer(i)">{{choix[i]}}</button>
+      <button *ngIf="i%2 === 0" class="answerButton box-content shadow-xl w-2/6" nbButton shape="round" size="medium" status="primary" (click)="onAnswer(i+1)">{{choix[i+1]}}</button>
+    </div>
+  </nb-card-body>
+</nb-card>

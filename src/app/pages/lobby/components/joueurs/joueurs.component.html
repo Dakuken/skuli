@@ -1,0 +1,19 @@
+<nb-card class="shadow joueurCard lg:w-96 mb-6" [ngClass]="{'mobileCard' : !fullScreen}">
+  <nb-card-header class="flex justify-between">
+    <p class="text-2xl">Joueurs</p>
+    <p class="text-2xl">{{users.length}}/{{params.nbPlayers}}</p>
+  </nb-card-header>
+  <nb-card-body class="bg-noir overflow-y-scroll">
+    <div class="flex items-center mb-4 justify-between border-b border-blue-900" *ngFor="let user of users">
+      <div class="joueur text-gray-300  flex items-center  pb-1">
+        <div class="point mr-2" [ngClass]="user.isReady ? 'greenPoint' : 'redPoint'"></div>
+        <p class="text-lg">{{user.userName}} <span class="text-gray-600" *ngIf="user.id === host"> (hote)</span> <span class="text-gray-600" *ngIf="user.id !== host && user.id === myId"> (you)</span></p>
+      </div>
+      <!-- ! faire la fonction pour expulser -->
+      <nb-icon icon="close-outline" status="danger" class="float-right text-2xl cursor-pointer" *ngIf="host === myId && user.id !== myId" (click)="onBan(user.id)"></nb-icon>
+    </div>
+  </nb-card-body>
+  <nb-card-footer class="flex justify-center" *ngIf="fullScreen">
+    <button size="large" nbButton outline status="danger" (click)="onLeave()" class="shadow">Leave</button>
+  </nb-card-footer>
+</nb-card>

@@ -1,0 +1,26 @@
+<div *ngIf="isLoaded">
+  <h1 class="absolute top-2 left-2" style="font-family: Bubblegum Sans, serif"> Skulili Quiz</h1>
+  <div class="flex justify-center h-full " [ngClass]="fullScreen?'items-center' : 'items-start'">
+    <div class="grideDeFou xl:gap-20 md:gap-10">
+      <div class="w-full min-w-min h-full joueurs ">
+        <app-joueurs [isReady]="isReady" [host]="host" [users]="users" [params]="params"></app-joueurs>
+      </div>
+      <div class="w-full min-w-min " [ngClass]="{'h-1/2' : fullScreen}">
+        <app-options (ready)="toggleReady()" [isHost]="isHost" [params]="params"></app-options>
+      </div>
+      <div class="flex flex-col items-center" *ngIf="fullScreen">
+        <p class="text-xl">Id de la partie : <span class="font-bold">{{roomId}}</span></p>
+        <br>
+        <button *ngIf="isHost && isAllReady" size="giant" class="shadow" nbButton outline (click)="start()" status="success">Start</button>
+        <button *ngIf="!(isHost && isAllReady)" size="giant" class="shadow" nbButton outline (click)="toggleReady()" [status]="(isReady)?'success':'danger'">{{(isReady)?'Ready':'Not ready'}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="h-full flex items-center justify-center" *ngIf="!isLoaded">
+  <div>
+    <app-loader></app-loader>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="w-full h-full flex flex-col items-center justify-center">
+  <img src="../../../assets/bg-home.svg" class="z-10 absolute w-full top-0 left-0 h-full object-cover" id="img" />
+  <h1 class="pb-10 text-9xl font-light tracking-wider select-none z-20" style="font-family: Bubblegum Sans, serif">
+    Skulili Quiz
+  </h1>
+  <div class="z-20 w-full flex items-center justify-center">
+    <form [formGroup]="signInForm" (ngSubmit)="addUser()">
+      <nb-card class="w-max text-center shadow-lg">
+        <nb-card-body>
+          <input type="text" nbInput placeholder="Pseudo" formControlName="pseudo" />
+        </nb-card-body>
+        <nb-card-footer>
+          <button nbButton outline status="success" type="submit" [disabled]="signInForm.invalid">
+            Play
+          </button>
+        </nb-card-footer>
+      </nb-card>
+    </form>
+    <footer class="absolute bottom-0 left-0 w-full text-center pb-2 opacity-50 select-none">
+      Fais par 5 super gars
+    </footer>
+  </div>
+</div>
